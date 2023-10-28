@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row box-register">
+    <div class="col-12">
+      <form class="mt-5" (ngSubmit)="register()" [formGroup]="formRegister">
+        <mat-form-field class="input-field">
+          <input
+            matInput
+            type="text"
+            placeholder="Username"
+            formControlName="username"
+          />
+        </mat-form-field>
+        <mat-form-field class="input-field">
+          <input
+            matInput
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="accent"
+          type="submit"
+          class="btn-register btn-lg"
+        >
+          Register
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

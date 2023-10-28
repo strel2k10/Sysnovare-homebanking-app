@@ -1,0 +1,59 @@
+<mat-card class="transaction-container">
+  <mat-card class="transaction-history">
+    <mat-card-header>
+      <mat-card-title>Transaction History</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list role="list">
+        <mat-list-item
+          *ngFor="let transaction of transactions"
+          class="transaction-item"
+        >
+          <div mat-list-icon>
+            <mat-icon>{{
+              transaction.type === "Deposit" ? "arrow_downward" : "arrow_upward"
+            }}</mat-icon>
+          </div>
+          <div mat-line>
+            {{ transaction.date | date : "short" }}
+          </div>
+          <div mat-line class="transaction-amount">
+            {{ transaction.amount | currency : 'EUR' }}
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="transaction-form">
+    <mat-card-header>
+      <mat-card-title>Make a Transaction</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Amount</mat-label>
+        <input matInput type="number" [(ngModel)]="newTransactionAmount" />
+      </mat-form-field>
+
+      <mat-radio-group [(ngModel)]="selectedTransactionType">
+        <mat-radio-button value="Deposit">Deposit</mat-radio-button>
+        <mat-radio-button value="Withdrawal">Withdrawal</mat-radio-button>
+      </mat-radio-group>
+
+      <button
+        mat-raised-button
+        color="primary"
+        class="submit-btn"
+        (click)="makeTransaction()"
+      >
+        Submit
+      </button>
+
+      <!-- Display the total balance -->
+      <div class="total-balance">
+        <h3>Total Balance:</h3>
+        <h2>{{ userBalance | currency : "EUR" }}</h2>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</mat-card>

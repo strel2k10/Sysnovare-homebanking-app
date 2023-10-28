@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row box-login">
+    <div class="col-12">
+      <ng-container *ngIf="!isUserLoggedIn; else loggedIn">
+        <form class="mt-5" (ngSubmit)="login()" [formGroup]="formLogin">
+          <mat-form-field class="input-field">
+            <input
+              matInput
+              type="text"
+              placeholder="Username"
+              formControlName="username"
+            />
+          </mat-form-field>
+          <mat-form-field class="input-field">
+            <input
+              matInput
+              type="password"
+              placeholder="Password"
+              formControlName="password"
+            />
+          </mat-form-field>
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            class="btn-login btn-lg"
+          >
+            Login
+          </button>
+        </form>
+      </ng-container>
+      <ng-template #loggedIn>
+        <button mat-raised-button color="primary" (click)="logout()">
+          Log Out
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</div>

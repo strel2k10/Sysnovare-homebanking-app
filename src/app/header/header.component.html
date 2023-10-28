@@ -1,0 +1,45 @@
+<div class="wrapper-header">
+  <div class="row" fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <a [routerLink]="['/']">
+        <img
+          src="assets/sysnovare-logo.png"
+          alt="Sysnovare Logo"
+          class="logo"
+        />
+      </a>
+      <ul class="menu-header">
+        <li *ngIf="isUserLoggedIn">
+          <a [routerLink]="['/transactions']">Transaction History</a>
+        </li>
+      </ul>
+    </div>
+    <div class="header-buttons">
+      <button
+        mat-raised-button
+        color="primary"
+        *ngIf="isUserLoggedIn"
+        (click)="logout()"
+      >
+        Log Out
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        *ngIf="!isUserLoggedIn && !isLoginRoute()"
+        [routerLink]="['/login']"
+      >
+        Log In
+      </button>
+      <button
+        mat-raised-button
+        color="accent"
+        *ngIf="!isUserLoggedIn && !isRegistrationRoute()"
+        [routerLink]="['/register']"
+        class="register-button"
+      >
+        Register
+      </button>
+    </div>
+  </div>
+</div>
