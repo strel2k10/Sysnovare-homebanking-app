@@ -1,9 +1,10 @@
 .hero {
-  background: url("/assets/background.jpg") center/cover;
+  background: linear-gradient(0deg, rgba(46,100,176,0.2), rgba(0,0,0,0.6)), url("/assets/background.jpg") center/cover;
   background-size: cover;
   text-align: center;
   color: #fff;
-  padding: 100px 0;
+  padding: 120px 0;
+  padding-top: 200px;
   position: relative;
 }
 
@@ -33,25 +34,31 @@
 }
 
 .cta-button {
-  background-color: #007bff;
+  background-color: #3f51b5;
   color: #fff;
   cursor: pointer;
 }
 
 .features {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 30px;
+  padding: 40px;
 }
 
 mat-card.feature {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
   text-align: center;
   padding: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .icon {
   margin-bottom: 10px;
+  color: #3f51b5;
 }
 
 footer {
